@@ -1,3 +1,4 @@
+import CountryListItem from './components/CountryListItem'
 import styles from './page.module.css'
 
 async function getCountries(): Promise<IPaginatedCountries> {
@@ -10,10 +11,10 @@ export default async function Countries({ params }: any) {
 
   return (
     <main className={styles.main}>
-      <h1>Countries APP</h1>
+      <h1>Countries App</h1>
 
       {countries.data.map((country: ICountry) => (
-        <div key={country.name.official}>{country.name.official}</div>
+        <CountryListItem key={country.name.official} country={country} />
       ))}
     </main>
   )

@@ -1,7 +1,18 @@
-interface ICountry {
+interface ICountryResponse {
   name: ICountryName
   capital: string[]
   population: number
+  flags: ICountryFlag
+}
+
+interface ICountry {
+  name: ICountryName
+  capital: string[]
+  population: string
+  flag: {
+    alt: string,
+    url: string,
+  }
 }
 
 interface ICountryName {
@@ -13,4 +24,10 @@ interface IPaginatedCountries {
   data: ICountry[]
   page: number
   totalCount: number
+}
+
+interface ICountryFlag {
+  svg: string
+  png: string
+  alt: string
 }

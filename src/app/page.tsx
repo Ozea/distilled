@@ -1,4 +1,5 @@
 import CountryListItem from './components/CountryListItem'
+import CountryList from './containers/CountryList'
 import styles from './page.module.css'
 
 async function getCountries(): Promise<IPaginatedCountries> {
@@ -7,15 +8,13 @@ async function getCountries(): Promise<IPaginatedCountries> {
 }
 
 export default async function Countries({ params }: any) {
-  const countries = await getCountries()
+  const paginatedCountries = await getCountries()
 
   return (
     <main className={styles.main}>
       <h1>Countries App</h1>
 
-      {countries.data.map((country: ICountry) => (
-        <CountryListItem key={country.name.official} country={country} />
-      ))}
+      <CountryList countries={paginatedCountries.data} />
     </main>
   )
 }

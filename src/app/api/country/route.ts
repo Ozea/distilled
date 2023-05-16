@@ -1,22 +1,40 @@
-import { NextResponse } from 'next/server';
+import { NextResponse } from 'next/server'
+import { fetchCountriesByCodes, fetchCountryByName, formatPopulation, retrieveCountryFlag } from '../helpers'
 
-const BASE_URL = 'https://restcountries.com/v3.1'
- 
+const fetchBorderingCountries = async (borders: string[]): Promise<ICountryResponse[]> => {
+  if (!borders) return []
+  return await fetchCountriesByCodes(borders.slice(0, 4))
+}
+
 export async function GET(request: Request) {
-  const { searchParams } = new URL(request.url);
-  const name = searchParams.get('name');
-  const res = await fetch(`${BASE_URL}/name/${name}`, {
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  });
-  const response: ICountry[] = await res.json();
-  const country: ICountry = response[0]
-  const countryDetails: ICountry = {
-    name: country.name,
-    capital: country.capital,
-    population: country.population,
+  const { searchParams } = new URL(request.url)
+  const name = searchParams.get('name')
+
+  if (!name)
+    return NextResponse.json({
+      code: 500,
+      message: 'Search param (name) is missing.',
+    })
+
+  const response = await fetchCountryByName(name)
+  const country: ICountryResponse = response
+  const { name: countryName, capital, population, borders, currencies, languages } = country
+
+  const borderingCountries: ICountryResponse[] = await fetchBorderingCountries(borders)
+
+  const countryDetails: ICountryDetails = {
+    name: countryName,
+    capital,
+    population: formatPopulation(population),
+    flag: retrieveCountryFlag(country),
+    borders: borderingCountries.map((borderingCountry: ICountryResponse) => ({
+      name: borderingCountry.name,
+      population: formatPopulation(borderingCountry.population),
+      flag: retrieveCountryFlag(borderingCountry),
+    })),
+    currency: Object.values(currencies).map((currency) => currency.name),
+    languages: Object.values(languages),
   }
- 
-  return NextResponse.json(countryDetails);
+
+  return NextResponse.json(countryDetails)
 }

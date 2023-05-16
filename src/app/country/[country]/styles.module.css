@@ -1,0 +1,15 @@
+.btn {
+  display: block;
+  margin-top: 2rem;
+  border-radius: 5px;
+  border: 1px solid blue;
+  max-width: fit-content;
+  padding: .35rem 1.5rem;
+  color: blue;
+  transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn:hover {
+  background: blue;
+  color: white;
+}

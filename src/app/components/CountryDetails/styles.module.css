@@ -1,0 +1,15 @@
+.heading {
+  text-align: left;
+}
+
+.list {
+  margin: .5rem 0 0;
+  list-style: none;
+  padding: 0;
+  text-align: left;
+  width: fit-content;
+}
+
+.listItem {
+  margin: .15rem 0;
+}

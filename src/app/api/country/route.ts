@@ -19,14 +19,14 @@ export async function GET(request: Request) {
 
   const response = await fetchCountryByCode(code)
   const country: ICountryResponse = response[0]
-  const { name, capital, population, borders, currencies, languages, cioc } = country
+  const { name, capital, population, borders, currencies, languages, cca2, cca3, ccn3, cioc } = country
 
   const borderingCountries: ICountryResponse[] = await fetchBorderingCountries(borders)
 
   const countryDetails: ICountryDetails = {
     name,
     capital,
-    cioc,
+    code,
     population: formatPopulation(population),
     flag: retrieveCountryFlag(country),
     borders: borderingCountries.map((borderingCountry: ICountryResponse) => ({

@@ -12,10 +12,10 @@ export default function CountryDetails({ name, capital, population, currency, la
           <strong>Population:</strong> {population}
         </li>
         <li className={styles.listItem}>
-          <strong>Currencies:</strong> {currency.join(',')}
+          <strong>Currencies:</strong> {currency.join(', ')}
         </li>
         <li className={styles.listItem}>
-          <strong>Languages:</strong> {languages.join(',')}
+          <strong>Languages:</strong> {languages.join(', ')}
         </li>
       </ul>
     </div>

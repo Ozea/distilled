@@ -14,6 +14,15 @@ export async function fetchCountryByName(name: string): Promise<ICountryResponse
   return response[0]
 }
 
+export async function fetchCountryByCode(code: string): Promise<ICountryResponse[]> {
+  const req = await fetch(`${BASE_URL}/alpha?codes=${code}`, {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+  return await req.json()
+}
+
 export async function fetchCountriesByCodes(codes: string[]): Promise<ICountryResponse[]> {
   const req = await fetch(`${BASE_URL}/alpha?codes=${codes.join(',')}`, {
     headers: {

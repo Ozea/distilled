@@ -5,8 +5,8 @@ import pageStyles from '../../page.module.css'
 import styles from './styles.module.css'
 import CountryInformation from '@/app/containers/CountryInformation'
 
-async function getCountryByName(name: string): Promise<ICountryDetails> {
-  const res = await fetch(`http://localhost:3000/api/country?name=${name}`)
+async function getCountryByName(code: string): Promise<ICountryDetails> {
+  const res = await fetch(`http://localhost:3000/api/country?code=${code}`)
   return res.json()
 }
 

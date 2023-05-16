@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { fetchCountriesByCodes, fetchCountryByName, formatPopulation, retrieveCountryFlag } from '../helpers'
+import { fetchCountriesByCodes, fetchCountryByCode, formatPopulation, retrieveCountryFlag } from '../helpers'
 
 const fetchBorderingCountries = async (borders: string[]): Promise<ICountryResponse[]> => {
   if (!borders) return []
@@ -8,23 +8,25 @@ const fetchBorderingCountries = async (borders: string[]): Promise<ICountryRespo
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url)
-  const name = searchParams.get('name')
+  const code = searchParams.get('code')
 
-  if (!name)
+  if (!code) {
     return NextResponse.json({
       code: 500,
-      message: 'Search param (name) is missing.',
+      message: 'Search param (code) is missing.',
     })
+  }
 
-  const response = await fetchCountryByName(name)
-  const country: ICountryResponse = response
-  const { name: countryName, capital, population, borders, currencies, languages } = country
+  const response = await fetchCountryByCode(code)
+  const country: ICountryResponse = response[0]
+  const { name, capital, population, borders, currencies, languages, cioc } = country
 
   const borderingCountries: ICountryResponse[] = await fetchBorderingCountries(borders)
 
   const countryDetails: ICountryDetails = {
-    name: countryName,
+    name,
     capital,
+    cioc,
     population: formatPopulation(population),
     flag: retrieveCountryFlag(country),
     borders: borderingCountries.map((borderingCountry: ICountryResponse) => ({

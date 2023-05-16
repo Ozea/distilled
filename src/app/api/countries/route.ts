@@ -11,10 +11,11 @@ export async function GET(request: Request) {
 
   const response: ICountryResponse[] = await res.json()
   const countries: ICountry[] = response.map((country: ICountryResponse) => {
-    const { name, capital, population } = country
+    const { name, capital, population, cioc } = country
     return {
       name,
       capital,
+      cioc,
       population: formatPopulation(population),
       flag: retrieveCountryFlag(country),
     }

@@ -1,4 +1,4 @@
-import { BASE_URL } from '@/app/constants'
+import { BASE_URL } from '@/constants'
 import { NextResponse } from 'next/server'
 import { formatPopulation, retrieveCountryFlag } from '../helpers'
 

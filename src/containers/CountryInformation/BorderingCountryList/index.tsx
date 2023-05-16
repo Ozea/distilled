@@ -1,4 +1,4 @@
-import BorderingCountry from '@/app/components/BorderingCountry'
+import BorderingCountry from '@/components/BorderingCountry'
 
 import styles from './styles.module.css'
 

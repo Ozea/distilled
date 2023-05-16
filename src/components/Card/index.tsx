@@ -1,5 +1,5 @@
 import { PropsWithChildren } from 'react'
-import { classNames } from '@/app/helpers/classNames'
+import { classNames } from '@/helpers/classNames'
 
 import styles from './styles.module.css'
 

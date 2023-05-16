@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { ICountryDetailsPageParams } from './types'
 
-import pageSstyles from '../../page.module.css'
+import pageStyles from '../../page.module.css'
 import styles from './styles.module.css'
 import CountryInformation from '@/app/containers/CountryInformation'
 
@@ -14,7 +14,7 @@ export default async function Countries({ params }: ICountryDetailsPageParams) {
   const countryDetails = await getCountryByName(params.country)
 
   return (
-    <main className={pageSstyles.main}>
+    <main className={pageStyles.main}>
       <h1>Country details</h1>
 
       <Link href="/" className={styles.btn}>

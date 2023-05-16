@@ -4,6 +4,7 @@ interface ICountryResponse {
   population: number
   flags: ICountryFlag
   borders: string[]
+  cioc: string
   languages: {
     [key: string]: string
   }
@@ -32,6 +33,7 @@ interface ICountry {
   capital: string[]
   population: string
   flag: IFlag
+  cioc: string
 }
 
 interface ICountryName {

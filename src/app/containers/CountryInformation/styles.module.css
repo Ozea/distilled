@@ -1,0 +1,14 @@
+.detailsWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+  background: white;
+  padding: 1.25rem 2.25rem;
+  margin: 2rem 0;
+}
+
+.img {
+  border: 1px solid #ebebeb;
+  object-fit: cover;
+}

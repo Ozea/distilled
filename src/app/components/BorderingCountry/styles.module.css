@@ -12,4 +12,5 @@
 .img {
   border: 1px solid #ebebeb;
   object-fit: cover;
+  margin-bottom: .75rem;
 }

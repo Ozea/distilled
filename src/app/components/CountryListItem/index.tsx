@@ -11,7 +11,7 @@ export default function CountryListItem({ country }: { country: ICountry }) {
 
   return (
     <Card className={styles.card}>
-      <Link href={`/country/${country.cioc}`} className={styles.wrapper}>
+      <Link href={`/country/${country.code}`} className={styles.wrapper}>
         <div className={styles.row}>
           <Image src={flag.url} alt={flag.alt} width={85} height={60} className={styles.image} />
           <div className={styles.column}>

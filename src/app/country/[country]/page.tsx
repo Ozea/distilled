@@ -1,13 +1,25 @@
 import Link from 'next/link'
+import { Metadata } from 'next'
+
 import { ICountryDetailsPageParams } from './types'
+import CountryInformation from '@/app/containers/CountryInformation'
 
 import pageStyles from '../../page.module.css'
 import styles from './styles.module.css'
-import CountryInformation from '@/app/containers/CountryInformation'
 
 async function getCountryByName(code: string): Promise<ICountryDetails> {
   const res = await fetch(`http://localhost:3000/api/country?code=${code}`)
   return res.json()
+}
+
+export async function generateMetadata({ params }: ICountryDetailsPageParams): Promise<Metadata> {
+  const countryDetails = await getCountryByName(params.country)
+  const { name, population } = countryDetails
+
+  return {
+    title: `${name.common} details`,
+    description: `In ${name.official} live ${population} people.`,
+  }
 }
 
 export default async function Countries({ params }: ICountryDetailsPageParams) {

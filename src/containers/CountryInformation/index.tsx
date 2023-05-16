@@ -1,5 +1,5 @@
-import Card from '@/app/components/Card'
-import CountryDetails from '@/app/components/CountryDetails'
+import Card from '@/components/Card'
+import CountryDetails from '@/components/CountryDetails'
 import Image from 'next/image'
 
 import BorderingCountryList from './BorderingCountryList'

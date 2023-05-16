@@ -1,4 +1,4 @@
-import Skeleton from '@/app/components/Skeleton'
+import Skeleton from '@/components/Skeleton'
 
 import styles from './page.module.css'
 

@@ -1,4 +1,4 @@
-import CountryList from './containers/CountryList'
+import CountryList from '../containers/CountryList'
 import styles from './page.module.css'
 
 async function getCountries(): Promise<ICountry[]> {

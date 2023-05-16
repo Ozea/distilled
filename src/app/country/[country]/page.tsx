@@ -2,10 +2,10 @@ import Link from 'next/link'
 import { Metadata } from 'next'
 
 import { ICountryDetailsPageParams } from './types'
-import CountryInformation from '@/app/containers/CountryInformation'
 
 import pageStyles from '../../page.module.css'
 import styles from './styles.module.css'
+import CountryInformation from '@/containers/CountryInformation'
 
 async function getCountryByName(code: string): Promise<ICountryDetails> {
   const res = await fetch(`http://localhost:3000/api/country?code=${code}`)

@@ -1,0 +1,48 @@
+.card {
+  max-width: 300px;
+  min-height: 110px;
+}
+
+.wrapper {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: white;
+  transition: all .4s cubic-bezier(0.39, 0.575, 0.565, 1);
+  text-align: center;
+  padding: 15px 20px;
+  cursor: pointer;
+}
+
+.legend {
+  padding: .25rem;
+}
+
+.row {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  margin: .25rem 0.25rem;
+}
+
+.row:nth-of-type(2) {
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+
+.column {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0 1.25rem;
+  font-style: italic;
+}
+
+.image {
+  border: 1px solid #ebebeb;
+  aspect-ratio: 5 / 3;
+  max-width: 85px;
+  object-fit: cover;
+}

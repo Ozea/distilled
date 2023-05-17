@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BorderingCountry matches the snapshot 1`] = `
+<div>
+  <div
+    class="card border"
+  >
+    <img
+      alt="Ireland"
+      class="img"
+      data-nimg="1"
+      decoding="async"
+      height="50"
+      loading="lazy"
+      src="https://flagcdn.com/ie.svg"
+      style="color: transparent;"
+      width="75"
+    />
+    <strong>
+      Ireland
+    </strong>
+    <span>
+      <strong>
+        Population:
+      </strong>
+       
+      5.033.000
+    </span>
+  </div>
+</div>
+`;
